@@ -23,10 +23,12 @@
     <main class="py-2">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col">
+                <div class="col-2">
+
+                </div>
+                <div class="col-10">
 
                     @yield('content')
-
                 </div>
             </div>
         </div>

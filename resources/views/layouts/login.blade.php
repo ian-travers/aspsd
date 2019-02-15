@@ -15,21 +15,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="login-page">
 <div id="app">
-
-    @include('layouts._topNav')
-
-    <main class="py-2">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col">
-
-                    @yield('content')
-
-                </div>
-            </div>
-        </div>
+    <main class="py-4">
+        @yield('content')
     </main>
 </div>
 </body>
