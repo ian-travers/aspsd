@@ -12,13 +12,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Проекты <span class="sr-only">(current)</span></a>
+                <li class="nav-item {{ setActive('/') }}">
+                    <a class="nav-link" href="{{ route('home') }}">Проекты <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ setActive('nsi') }}">
                     <a class="nav-link" href="{{ route('nsi') }}">НСИ</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ setActive('adm') }}">
                     <a class="nav-link" href="{{ route('adm') }}">Администрирование</a>
                 </li>
             </ul>
