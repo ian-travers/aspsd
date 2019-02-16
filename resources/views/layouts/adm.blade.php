@@ -9,30 +9,33 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app">
+<header>
 
     @include('layouts._topNav')
+</header>
+<main class="app-content py-2">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-2">
 
-    <main class="py-2">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-2">
+            </div>
+            <div class="col-10">
 
-                </div>
-                <div class="col-10">
-
-                    @yield('content')
-                </div>
+                @yield('content')
             </div>
         </div>
-    </main>
-</div>
+    </div>
+</main>
+<footer>
+
+    @include('layouts._footer')
+</footer>
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

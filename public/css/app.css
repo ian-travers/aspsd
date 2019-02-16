@@ -13,7 +13,7 @@
 }
 
 .login-page {
-  background: lightseagreen;
+  background: #4dc0b5;
 }
 
 .login-box {
@@ -10702,7 +10702,7 @@ a.text-dark:focus {
 }
 
 .login-page {
-  background: lightseagreen;
+  background: #4dc0b5;
 }
 
 .login-box {
@@ -10721,5 +10721,15 @@ a.text-dark:focus {
   margin: 0;
   text-align: center;
   padding: 0 20px 20px 20px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
 }
 
