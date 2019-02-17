@@ -21,7 +21,9 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col">
-
+                @section('breadcrumbs', Breadcrumbs::render())
+                @yield('breadcrumbs')
+                @include('layouts._flash')
                 @yield('content')
             </div>
         </div>
