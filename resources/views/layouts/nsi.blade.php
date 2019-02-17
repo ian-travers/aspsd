@@ -16,17 +16,27 @@
 <header>
     @include('layouts._topNav')
 </header>
-<main class="app-content py-2">
+<main id="app" class="app-content py-2">
     <div class="container-fluid">
 
         @section('breadcrumbs', Breadcrumbs::render())
         @yield('breadcrumbs')
         @include('layouts._flash')
         <div class="row justify-content-center">
-            <div class="col-3">
-
+            <div class="col-2">
+                <div class="card border-info">
+                    <div class="card-header text-white bg-info">
+                        Таблицы НСИ
+                    </div>
+                    <div class="card-body">
+                        <nav class="nav flex-column">
+                            <a class="nav-link active" href="{{ route('nsi.clients.index') }}">Заказчики</a>
+                        </nav>
+                    </div>
+                </div>
             </div>
-            <div class="col-9">
+
+            <div class="col-10">
 
                 @yield('content')
             </div>

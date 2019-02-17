@@ -17,16 +17,12 @@
 
     @include('layouts._topNav')
 </header>
-<main class="app-content py-2">
+<main id="app" class="app-content py-2">
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col">
-                @section('breadcrumbs', Breadcrumbs::render())
-                @yield('breadcrumbs')
-                @include('layouts._flash')
-                @yield('content')
-            </div>
-        </div>
+        @section('breadcrumbs', Breadcrumbs::render())
+        @yield('breadcrumbs')
+        @include('layouts._flash')
+        @yield('content')
     </div>
 </main>
 <footer>
