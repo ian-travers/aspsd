@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a href="{{ route('nsi.clients.create') }}" class="btn btn-sm btn-outline-primary">
+            <a href="{{ route('nsi.clients.create') }}" class="btn btn-outline-primary">
                 Добавить заказчика
             </a>
         </div>

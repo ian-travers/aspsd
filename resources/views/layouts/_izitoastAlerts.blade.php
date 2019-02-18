@@ -10,7 +10,9 @@
                     title: "Информация",
                     message: msg,
                     timeout: 4000,
-                    position: 'bottomLeft'
+                    position: 'bottomLeft',
+                    transitionIn: 'flipInX',
+                    transitionOut: 'flipOutX',
                 });
                 break;
 
@@ -19,7 +21,9 @@
                     title: "Предупреждение",
                     message: msg,
                     timeout: 4000,
-                    position: 'bottomLeft'
+                    position: 'bottomLeft',
+                    transitionIn: 'flipInX',
+                    transitionOut: 'flipOutX',
                 });
                 break;
 
@@ -39,7 +43,9 @@
                     title: "Ошибка",
                     message: msg,
                     timeout: 4000,
-                    position: 'bottomLeft'
+                    position: 'bottomLeft',
+                    transitionIn: 'flipInX',
+                    transitionOut: 'flipOutX',
                 });
                 break;
         }
