@@ -7,7 +7,7 @@
             АС Учет ПСД
         </div>
         <div class="login-box-body">
-            <p class="login-box-msg">Для входа в систему введите <br> имя пользователя и пароль</p>
+            <p class="login-box-msg">Для входа в систему введите<br> имя пользователя и пароль</p>
 
             <form action="{{ route('login') }}" method="post">
                 @csrf

@@ -26,7 +26,12 @@ class ClientController extends Controller
     {
         Client::create($request->all());
 
-        return redirect()->route('nsi.clients.index')->with('success', 'Заказчик сохранен успешно.');
+//        return redirect()->route('nsi.clients.index')->with('success', 'Заказчик сохранен успешно.');
+        return redirect()->route('nsi.clients.index')->with([
+            'message' => 'Заказчик сохранен успешно',
+            'alert-type' => 'success',
+//            'success' => 'Заказчик сохранен успешно',
+        ]);
     }
 
     public function edit(Client $client)
@@ -40,13 +45,22 @@ class ClientController extends Controller
             'name',
         ]));
 
-        return redirect()->route('nsi.clients.index')->with('success', 'Заказчик сохранен успешно.');
+//        return redirect()->route('nsi.clients.index')->with('success', 'Заказчик сохранен успешно.');
+        return redirect()->route('nsi.clients.index')->with([
+            'message' => 'Заказчик сохранен успешно',
+            'alert-type' => 'success',
+//            'success' => 'Заказчик сохранен успешно',
+        ]);
     }
 
     public function destroy(Client $client)
     {
-        $client->delete();
+//        $client->delete();
 
-        return redirect()->route('nsi.clients.index')->with('success', 'Заказчик удален успешно.');
+        return redirect()->route('nsi.clients.index')->with([
+            'message' => 'Заказчик удален успешно',
+            'alert-type' => 'success',
+//            'success' => 'Заказчик удален успешно',
+        ]);
     }
 }

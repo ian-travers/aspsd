@@ -21,7 +21,7 @@
 
         @section('breadcrumbs', Breadcrumbs::render())
         @yield('breadcrumbs')
-        @include('layouts._flash')
+{{--        @include('layouts._flash')--}}
         <div class="row justify-content-center">
             <div class="col-2">
                 <div class="card border-info">
@@ -50,5 +50,7 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+
+@include('layouts.izitoastAlerts')
 </body>
 </html>
