@@ -22,10 +22,19 @@
 
         @section('breadcrumbs', Breadcrumbs::render())
         @yield('breadcrumbs')
-        @include('layouts._flash')
+{{--        @include('layouts._flash')--}}
         <div class="row justify-content-center">
             <div class="col-2">
-
+                <div class="card border-info">
+                    <div class="card-header text-white bg-info">
+                        Администрирование
+                    </div>
+                    <div class="card-body">
+                        <nav class="nav flex-column">
+                            <a class="nav-link active" href="{{ route('adm.users.index') }}">Пользователи</a>
+                        </nav>
+                    </div>
+                </div>
             </div>
             <div class="col-10">
 
@@ -41,5 +50,7 @@
 
 <!-- Scripts -->
 <script src="{{ mix('js/app.js', 'build') }}"></script>
+
+@include('layouts._izitoastAlerts')
 </body>
 </html>

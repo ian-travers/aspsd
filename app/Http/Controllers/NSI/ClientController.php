@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\NSI;
 
 use App\Client;
-use App\Http\Requests\ClientCreateRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\Client\ClientStoreRequest;
+use App\Http\Requests\Client\ClientUpdateRequest;
+use App\Http\Controllers\Controller;
 
 class ClientController extends Controller
 {
@@ -22,15 +23,13 @@ class ClientController extends Controller
         return view('nsi.client.create', compact('client'));
     }
 
-    public function store(ClientCreateRequest $request)
+    public function store(ClientStoreRequest $request)
     {
         Client::create($request->all());
 
-//        return redirect()->route('nsi.clients.index')->with('success', 'Заказчик сохранен успешно.');
         return redirect()->route('nsi.clients.index')->with([
             'message' => 'Заказчик сохранен успешно',
             'alert-type' => 'success',
-//            'success' => 'Заказчик сохранен успешно',
         ]);
     }
 
@@ -39,28 +38,25 @@ class ClientController extends Controller
         return view('nsi.client.edit', compact('client'));
     }
 
-    public function update(Request $request, Client $client)
+    public function update(ClientUpdateRequest $request, Client $client)
     {
         $client->update($request->only([
             'name',
         ]));
 
-//        return redirect()->route('nsi.clients.index')->with('success', 'Заказчик сохранен успешно.');
         return redirect()->route('nsi.clients.index')->with([
             'message' => 'Заказчик сохранен успешно',
             'alert-type' => 'success',
-//            'success' => 'Заказчик сохранен успешно',
         ]);
     }
 
     public function destroy(Client $client)
     {
-//        $client->delete();
+        $client->delete();
 
         return redirect()->route('nsi.clients.index')->with([
             'message' => 'Заказчик удален успешно',
             'alert-type' => 'success',
-//            'success' => 'Заказчик удален успешно',
         ]);
     }
 }

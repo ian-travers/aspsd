@@ -30,8 +30,23 @@ Breadcrumbs::for('nsi.clients.edit', function ($trail) {
     $trail->push('Редактирование');
 });
 
-
+// Adm
 Breadcrumbs::for('adm', function ($trail) {
     $trail->parent('home');
     $trail->push('Администрирование', route('adm'));
+});
+
+Breadcrumbs::for('adm.users.index', function ($trail) {
+    $trail->parent('adm');
+    $trail->push('Пользователи', route('adm.users.index'));
+});
+
+Breadcrumbs::for('adm.users.create', function ($trail) {
+    $trail->parent('adm.users.index');
+    $trail->push('Новый');
+});
+
+Breadcrumbs::for('adm.users.edit', function ($trail) {
+    $trail->parent('adm.users.index');
+    $trail->push('Редактирование');
 });

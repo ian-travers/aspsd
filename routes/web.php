@@ -16,4 +16,5 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/nsi', 'NSIController@index')->name('nsi');
 Route::get('/adm', 'AdmController@index')->name('adm');
-Route::resource('/nsi/clients', 'ClientController', ['as' => 'nsi']);
+Route::resource('/nsi/clients', 'NSI\ClientController', ['as' => 'nsi']);
+Route::resource('/adm/users', 'Adm\UserController', ['as' => 'adm']);

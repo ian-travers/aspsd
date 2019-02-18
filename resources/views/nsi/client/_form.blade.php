@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="name">Наименование</label>
-    <input type="text" name="name" value="{{ old('name', $client->name) }}" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}">
+    <input type="text" id="name" name="name" value="{{ old('name', $client->name) }}" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" autofocus>
 
     @if($errors->has('name'))
 
