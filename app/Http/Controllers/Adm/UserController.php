@@ -63,4 +63,22 @@ class UserController extends Controller
             'alert-type' => 'success',
         ]);
     }
+
+    public function editPassword(User $user)
+    {
+        return view('adm.user.editPassword', compact('user'));
+    }
+
+    public function updatePassword(Request $request, User $user)
+    {
+        $password = $request->input('password');
+
+        $user->password = bcrypt($password);
+        $user->saveOrFail();
+
+        return redirect()->route('adm.users.index')->with([
+            'message' => 'Пароль пользователя изменен успешно',
+            'alert-type' => 'success',
+        ]);
+    }
 }

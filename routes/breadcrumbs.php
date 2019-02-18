@@ -50,3 +50,8 @@ Breadcrumbs::for('adm.users.edit', function ($trail) {
     $trail->parent('adm.users.index');
     $trail->push('Редактирование');
 });
+
+Breadcrumbs::for('adm.users.edit-password', function ($trail) {
+    $trail->parent('adm.users.index');
+    $trail->push('Смена пароля');
+});
