@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Adm;
 
+use App\Http\Requests\User\PasswordRequest;
 use App\Http\Requests\User\UserStoreRequest;
 use App\Http\Requests\User\UserUpdateRequest;
 use App\User;
@@ -69,8 +70,9 @@ class UserController extends Controller
         return view('adm.user.editPassword', compact('user'));
     }
 
-    public function updatePassword(Request $request, User $user)
+    public function updatePassword(PasswordRequest $request, User $user)
     {
+
         $password = $request->input('password');
 
         $user->password = bcrypt($password);
@@ -80,5 +82,10 @@ class UserController extends Controller
             'message' => 'Пароль пользователя изменен успешно',
             'alert-type' => 'success',
         ]);
+    }
+
+    public function changePasswordModal(Request $request)
+    {
+        return "Change Password Model";
     }
 }
