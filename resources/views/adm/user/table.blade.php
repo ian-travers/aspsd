@@ -22,15 +22,23 @@
                     Изменить
                 </a>
 
-                <a href="{{ route('adm.users.edit-password', $user->id) }}" class="btn btn-outline-primary btn-sm">
+                <button
+                        type="button"
+                        class="btn btn-sm btn-outline-primary bootstrap-modal-form-open"
+                        data-toggle="modal"
+                        data-target="#changePasswordModal"
+                        data-user-id="{{ $user->id }}"
+                        data-user-name="{{ $user->name }}"
+                >
                     Сменить пароль
-                </a>
+                </button>
 
                 <form class="d-inline" action="{{ route('adm.users.destroy', $user) }}" method="post">
 
                     @method('delete')
                     @csrf
-                    <button type="submit" onclick="return confirm('Подтверждаете удаление?')" class="btn btn-outline-danger btn-sm">
+                    <button type="submit" onclick="return confirm('Подтверждаете удаление?')"
+                            class="btn btn-outline-danger btn-sm">
                         Удалить
                     </button>
                 </form>

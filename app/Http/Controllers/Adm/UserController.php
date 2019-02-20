@@ -65,27 +65,40 @@ class UserController extends Controller
         ]);
     }
 
-    public function editPassword(User $user)
-    {
-        return view('adm.user.editPassword', compact('user'));
-    }
-
-    public function updatePassword(PasswordRequest $request, User $user)
-    {
-
-        $password = $request->input('password');
-
-        $user->password = bcrypt($password);
-        $user->saveOrFail();
-
-        return redirect()->route('adm.users.index')->with([
-            'message' => 'Пароль пользователя изменен успешно',
-            'alert-type' => 'success',
-        ]);
-    }
-
     public function changePasswordModal(Request $request)
     {
-        return "Change Password Model";
+        if ($request->isMethod('patch')) {
+
+            try {
+                $this->validate($request,
+                    [
+                        'userId' => 'required',
+                        'password' => 'required|string|min:4',
+                    ],
+                    [
+                        'password.required' => 'Пароль не должен быть пустым',
+                        'password.min' => 'Пароль не менее 4-х символов',
+                    ]);
+            } catch (\Illuminate\Validation\ValidationException $e) {
+                $key = key($e->errors());
+                $message = $e->errors()[$key][0];
+
+                return back()->with([
+                    'message' => $message,
+                    'alert-type' => 'error',
+                ]);
+            }
+
+
+            return back()->with([
+                'message' => 'Пароль пользователя изменен успешно',
+                'alert-type' => 'success',
+            ]);
+        }
+
+        return back()->with([
+            'message' => 'Недопустимый метод',
+            'alert-type' => 'warning',
+        ]);
     }
 }

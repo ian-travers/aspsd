@@ -52,5 +52,6 @@
 <script src="{{ mix('js/app.js', 'build') }}"></script>
 
 @include('layouts._izitoastAlerts')
+@yield('script')
 </body>
 </html>
