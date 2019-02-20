@@ -1,7 +1,7 @@
 @extends('layouts.adm')
 
 @section('content')
-    <div class="card">
+    <div class="card border-primary">
         <div class="card-header">
             <h4>Новый пользователь</h4>
         </div>

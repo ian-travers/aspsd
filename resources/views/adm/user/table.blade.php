@@ -3,6 +3,8 @@
     <tr>
         <td width="292">Действия</td>
         <td>Имя пользователя</td>
+        <td>ФИО</td>
+        <td>Должность</td>
         <td>Email</td>
     </tr>
     </thead>
@@ -46,7 +48,10 @@
 
             </td>
             <td>{{ $user->name }}</td>
+            <td>{{ $user->fio }}</td>
+            <td>{{ $user->post }}</td>
             <td>{{ $user->email }}</td>
+
         </tr>
     @endforeach
 

@@ -53,7 +53,7 @@
     </div>
     {{--End Modal--}}
 
-    <div class="card">
+    <div class="card border-primary">
         <div class="card-header">
             <a href="{{ route('adm.users.create') }}" class="btn btn-outline-primary">
                 Добавить пользователя

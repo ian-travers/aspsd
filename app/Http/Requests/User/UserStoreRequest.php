@@ -17,6 +17,10 @@ class UserStoreRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:4',
+            'post' => 'nullable|string|max:255',
+            'surname' => 'nullable|string|max:30',
+            'first_name' => 'nullable|string|max:30',
+            'patronymic_name' => 'nullable|string|max:30',
         ];
     }
 
@@ -29,6 +33,10 @@ class UserStoreRequest extends FormRequest
             'email.unique' => 'Адрес Email уже используется',
             'password.required' => 'Пароль не должно быть пустым',
             'password.min' => 'Пароль не менее 4-х символов',
+            'post.max' => 'Название должности не более 255 символов',
+            'surname.max' => 'Фамилия не более 30 символов',
+            'first_name.max' => 'Название должности не более 30 символов',
+            'patronymic_name.max' => 'Название должности не более 30 символов',
         ];
     }
 }

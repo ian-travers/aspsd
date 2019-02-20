@@ -1,7 +1,7 @@
 @extends('layouts.nsi')
 
 @section('content')
-    <div class="card">
+    <div class="card border-primary">
         <div class="card-header">
             <h3>Редактирование заказчика</h3>
         </div>

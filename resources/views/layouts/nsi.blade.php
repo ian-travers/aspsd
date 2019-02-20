@@ -21,18 +21,20 @@
 
         @section('breadcrumbs', Breadcrumbs::render())
         @yield('breadcrumbs')
-{{--        @include('layouts._flash')--}}
+        {{--        @include('layouts._flash')--}}
         <div class="row justify-content-center">
             <div class="col-2">
-                <div class="card border-info">
-                    <div class="card-header text-white bg-info">
+                <div class="card border-primary">
+                    <div class="card-header text-white bg-primary">
                         Таблицы НСИ
                     </div>
-                    <div class="card-body">
-                        <nav class="nav flex-column">
-                            <a class="nav-link active" href="{{ route('nsi.clients.index') }}">Заказчики</a>
-                        </nav>
-                    </div>
+                    <nav class="nav flex-column">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-action">
+                                <a class="nav-link active" href="{{ route('nsi.clients.index') }}">Заказчики</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
 

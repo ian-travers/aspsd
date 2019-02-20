@@ -3,7 +3,7 @@
 {{--@section('breadcrumbs', Breadcrumbs::render('adm'))--}}
 
 @section('content')
-    <div class="card">
+    <div class="card border-primary">
         <div class="card-header">
             Заголовок
         </div>
