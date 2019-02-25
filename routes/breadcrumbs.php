@@ -1,5 +1,7 @@
 <?php
 
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
+
 Breadcrumbs::for('home', function ($trail) {
     $trail->push('Главная', route('home'));
 });
@@ -10,13 +12,13 @@ Breadcrumbs::for('projects', function ($trail) {
 });
 
 // NSI
-Breadcrumbs::for('nsi', function ($trail) {
+Breadcrumbs::for('nsi.', function ($trail) {
     $trail->parent('home');
-    $trail->push('НСИ', route('nsi'));
+    $trail->push('НСИ', route('nsi.'));
 });
 
 Breadcrumbs::for('nsi.clients.index', function ($trail) {
-    $trail->parent('nsi');
+    $trail->parent('nsi.');
     $trail->push('Заказчики', route('nsi.clients.index'));
 });
 
@@ -31,13 +33,13 @@ Breadcrumbs::for('nsi.clients.edit', function ($trail) {
 });
 
 // Adm
-Breadcrumbs::for('adm', function ($trail) {
+Breadcrumbs::for('adm.', function ($trail) {
     $trail->parent('home');
-    $trail->push('Администрирование', route('adm'));
+    $trail->push('Администрирование', route('adm.'));
 });
 
 Breadcrumbs::for('adm.users.index', function ($trail) {
-    $trail->parent('adm');
+    $trail->parent('adm.');
     $trail->push('Пользователи', route('adm.users.index'));
 });
 

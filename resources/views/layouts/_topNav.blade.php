@@ -16,10 +16,10 @@
                     <a class="nav-link" href="{{ route('home') }}">Проекты <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item {{ setActive('nsi') }}">
-                    <a class="nav-link" href="{{ route('nsi') }}">НСИ</a>
+                    <a class="nav-link" href="{{ route('nsi.') }}">НСИ</a>
                 </li>
                 <li class="nav-item {{ setActive('adm') }}">
-                    <a class="nav-link" href="{{ route('adm') }}">Администрирование</a>
+                    <a class="nav-link" href="{{ route('adm.') }}">Администрирование</a>
                 </li>
             </ul>
 
