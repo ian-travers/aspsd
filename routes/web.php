@@ -14,12 +14,33 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/nsi', 'NSIController@index')->name('nsi');
-Route::get('/adm', 'AdmController@index')->name('adm');
+Route::get('/nsi', 'NSIController@index')->middleware('auth')->name('nsi');
+Route::get('/adm', 'AdmController@index')->middleware('auth')->name('adm');
 
-Route::resource('/nsi/clients', 'NSI\ClientController', ['as' => 'nsi']);
+Route::group(
+    [
+        'prefix' => 'nsi',
+        'as' => 'nsi.',
+        'namespace' => 'NSI',
+        'middleware' => ['auth'],
+    ],
+    function () {
+        Route::resource('/clients', 'ClientController');
+    }
+);
 
 
-Route::patch('/adm/users/change-password-modal', 'Adm\UserController@changePasswordModal', ['as' => 'adm'])->name('adm.users.change-password-modal');
-Route::resource('/adm/users', 'Adm\UserController', ['as' => 'adm']);
+Route::group(
+    [
+        'prefix' => 'adm',
+        'as' => 'adm.',
+        'namespace' => 'Adm',
+        'middleware' => ['auth'],
+    ],
+    function () {
+        Route::patch('/users/change-password-modal', 'UserController@changePasswordModal')->name('users.change-password-modal');
+        Route::resource('/users', 'UserController');
+    }
+);
+
 
