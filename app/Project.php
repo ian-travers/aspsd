@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property integer $id
  * @property string $name
+ * @property integer $client_id
  * @property string|null $description
  * @property string|null $author_supervisor_name
  * @property Carbon|null $init_info_deadline_at
@@ -32,6 +33,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Project extends Model
 {
+    protected $fillable = [
+        'name', 'client_id', 'description', 'author_supervisor_name',
+        'init_info_deadline_at', 'issue_deadline_at', 'expertise_deadline_at',
+    ];
     protected $dates = [
         'init_info_deadline_at', 'issue_deadline_at', 'expertise_deadline_at', 'init_info_got_at',
         'issued_at', 'expertise_passed_at',

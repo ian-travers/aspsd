@@ -32,7 +32,7 @@
                     title: "Успех",
                     message: msg,
                     timeout: 4000,
-                    position: 'bottomLeft',
+                    position: 'topCenter',
                     transitionIn: 'flipInX',
                     transitionOut: 'flipOutX',
                 });
