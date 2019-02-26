@@ -19,6 +19,7 @@
 </header>
 <main id="app" class="app-content py-2">
     <div class="container-fluid">
+
         @section('breadcrumbs', Breadcrumbs::render())
         @yield('breadcrumbs')
         @include('layouts._flash')

@@ -42,6 +42,7 @@ Route::group(
         Route::get('/', 'AdmController@index');
         Route::patch('/users/change-password-modal', 'UserController@changePasswordModal')->name('users.change-password-modal');
         Route::resource('/users', 'UserController');
+        Route::resource('/projects', 'ProjectController');
     }
 );
 

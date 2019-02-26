@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $slug
  * @property Carbon $created_at
  * @property Carbon $updated_at
+ *
+ * @property Project[] $projects
  */
 class Client extends Model
 {
@@ -23,5 +25,10 @@ class Client extends Model
     public function setSlugAttribute($value)
     {
         $this->attributes['slug'] = str_slug(trim($this->name));
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
     }
 }

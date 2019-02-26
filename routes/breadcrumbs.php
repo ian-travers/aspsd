@@ -53,7 +53,18 @@ Breadcrumbs::for('adm.users.edit', function ($trail) {
     $trail->push('Редактирование');
 });
 
-Breadcrumbs::for('adm.users.edit-password', function ($trail) {
-    $trail->parent('adm.users.index');
-    $trail->push('Смена пароля');
+Breadcrumbs::for('adm.projects.index', function ($trail) {
+    $trail->parent('adm.');
+    $trail->push('Проекты', route('adm.projects.index'));
 });
+
+Breadcrumbs::for('adm.projects.create', function ($trail) {
+    $trail->parent('adm.projects.index');
+    $trail->push('Новый');
+});
+
+Breadcrumbs::for('adm.projects.edit', function ($trail) {
+    $trail->parent('adm.projects.index');
+    $trail->push('Редактирование');
+});
+
