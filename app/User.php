@@ -12,6 +12,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  *
  * @property integer $id
  * @property string $name
+ * @property string $role
  * @property string|null $post
  * @property string|null $surname
  * @property string|null $first_name
@@ -28,14 +29,67 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public const ROLE_USER = 'user';
+    public const ROLE_NSI = 'nsi';
+    public const ROLE_PROJECTOR = 'projector';
+    public const ROLE_VERIFIER = 'verifier';
+    public const ROLE_SA = 'sa';
+
     protected $fillable = [
-        'name', 'post', 'surname', 'first_name', 'patronymic_name', 'email', 'password',
+        'name', 'role', 'post', 'surname', 'first_name', 'patronymic_name', 'email', 'password',
     ];
 
     protected $hidden = [
         'password', 'remember_token',
     ];
 
+    public static function rolesList(): array
+    {
+        return [
+            self::ROLE_USER => 'Пользователь',
+            self::ROLE_NSI => 'Редактор НСИ',
+            self::ROLE_PROJECTOR => 'Проектировщик',
+            self::ROLE_VERIFIER => 'Контролер проектор',
+            self::ROLE_SA => 'Администратор системы',
+        ];
+    }
+
+    public function isSA()
+    {
+        return $this->role === self::ROLE_SA;
+    }
+
+    public function isNSI()
+    {
+        return $this->role === self::ROLE_NSI;
+    }
+
+    public function isProjector()
+    {
+        return $this->role === self::ROLE_PROJECTOR;
+    }
+
+    public function isVerifier()
+    {
+        return $this->role === self::ROLE_VERIFIER;
+    }
+
+    public function isUser()
+    {
+        return $this->role === self::ROLE_USER;
+    }
+
+    public function changeRole($role): void
+    {
+        if (!array_key_exists($role, self::rolesList())) {
+            throw new \InvalidArgumentException('Неизвестная роль "' . $role . '"');
+        }
+
+        if ($this->role === $role) {
+            throw new \DomainException('Эта роль уже назначена');
+        }
+        $this->update(['role' => $role]);
+    }
 
     /**
      * Get FIO

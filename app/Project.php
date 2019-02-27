@@ -61,7 +61,9 @@ class Project extends Model
 
     public function getInitInfoGotAttribute(): string
     {
+//        Carbon::setLocale('ru');
         return $this->init_info_got_at ? $this->init_info_got_at->format('d.m.Y') : '';
+//        return $this->init_info_got_at ? $this->init_info_got_at->format('d.m.Y') : ($this->init_info_deadline_at ? $this->init_info_deadline_at->diffForHumans() : '');
     }
 
     public function getIssueDeadlineAttribute(): string

@@ -20,6 +20,7 @@ class UsersTableSeeder extends Seeder
                     'surname' => $faker->lastName,
                     'first_name' => $faker->firstNameMale,
                     'patronymic_name' => $faker->middleNameMale,
+                    'role' => 'sa',
                 ],
                 [
                     'name' => 'nodg',
@@ -28,6 +29,7 @@ class UsersTableSeeder extends Seeder
                     'surname' => $faker->lastName,
                     'first_name' => $faker->firstNameMale,
                     'patronymic_name' => $faker->middleNameMale,
+                    'role' => 'verifier',
                 ],
                 [
                     'name' => 'psg',
@@ -36,13 +38,15 @@ class UsersTableSeeder extends Seeder
                     'surname' => $faker->lastName,
                     'first_name' => $faker->firstNameMale,
                     'patronymic_name' => $faker->middleNameMale,
+                    'role' => 'projector',
                 ],
             ]);
         } else {
             DB::table('users')->insert([
                 'name' => 'sa',
                 'email' => 'sa@test.lan',
-                'password' =>bcrypt('111111'),
+                'password' => bcrypt('111111'),
+                'role' => 'sa',
             ]);
         }
     }

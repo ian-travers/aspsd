@@ -11,12 +11,12 @@ class ProjectsTableSeeder extends Seeder
 
         if (env('APP_ENV') == 'local') {
             $projects = [];
-            $date = Carbon::now()->modify('-3 month');
+            $date = Carbon::now()->modify('-2 month');
             $faker = Faker\Factory::create('ru_RU');
 
             for ($i = 1; $i <= 24; $i++) {
                 // Prepare all dates
-                $date->addDay(5);
+                $date->addDay(3);
                 $initDeadlineDate = clone($date);
                 $issueDeadlineDate = clone($date);
 
