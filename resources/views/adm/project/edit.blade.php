@@ -14,6 +14,7 @@
                 @csrf
                 @method('put')
                 @include('adm.project._form')
+                @include('adm.project._classifiedFormFields')
                 <button type="submit" class="btn btn-outline-primary">Сохранить</button>
                 <a href="{{ route('adm.projects.index') }}" class="btn btn-outline-secondary">Отменить</a>
             </form>
