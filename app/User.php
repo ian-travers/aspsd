@@ -49,7 +49,7 @@ class User extends Authenticatable
             self::ROLE_USER => 'Пользователь',
             self::ROLE_NSI => 'Редактор НСИ',
             self::ROLE_PROJECTOR => 'Проектировщик',
-            self::ROLE_VERIFIER => 'Контролер проектор',
+            self::ROLE_VERIFIER => 'Контролер проектов',
             self::ROLE_SA => 'Администратор системы',
         ];
     }

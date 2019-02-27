@@ -9,7 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class UserController extends AdmController
 {
     public function index()
     {
@@ -21,8 +21,9 @@ class UserController extends Controller
     public function create()
     {
         $user = new User();
+        $roles = User::rolesList();
 
-        return view('adm.user.create', compact('user'));
+        return view('adm.user.create', compact('user', 'roles'));
     }
 
     public function store(UserStoreRequest $request)
@@ -42,7 +43,9 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('adm.user.edit', compact('user'));
+        $roles = User::rolesList();
+
+        return view('adm.user.edit', compact('user', 'roles'));
     }
 
     public function update(UserUpdateRequest $request, User $user)

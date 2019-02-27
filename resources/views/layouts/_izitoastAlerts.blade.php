@@ -8,7 +8,9 @@
             case 'info':
                 iziToast.info({
                     title: "Информация",
+                    titleSize: '2rem',
                     message: msg,
+                    messageSize: '2rem',
                     timeout: 4000,
                     position: 'bottomLeft',
                     transitionIn: 'flipInX',
@@ -19,7 +21,9 @@
             case 'warning':
                 iziToast.warning({
                     title: "Предупреждение",
+                    titleSize: '2rem',
                     message: msg,
+                    messageSize: '2rem',
                     timeout: 4000,
                     position: 'bottomLeft',
                     transitionIn: 'flipInX',
@@ -30,7 +34,9 @@
             case 'success':
                 iziToast.success({
                     title: "Успех",
+                    titleSize: '2rem',
                     message: msg,
+                    messageSize: '2rem',
                     timeout: 4000,
                     position: 'topCenter',
                     transitionIn: 'flipInX',
@@ -41,7 +47,9 @@
             case 'error':
                 iziToast.error({
                     title: "Ошибка",
+                    titleSize: '2rem',
                     message: msg,
+                    messageSize: '2rem',
                     timeout: 4000,
                     position: 'bottomLeft',
                     transitionIn: 'flipInX',

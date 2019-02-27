@@ -7,7 +7,7 @@ use App\Http\Requests\Client\ClientStoreRequest;
 use App\Http\Requests\Client\ClientUpdateRequest;
 use App\Http\Controllers\Controller;
 
-class ClientController extends Controller
+class ClientController extends NSIController
 {
     public function index()
     {
