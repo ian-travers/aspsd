@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Adm;
 
 use App\Client;
+use App\Http\Requests\Adm\ProjectStoreRequest;
+use App\Http\Requests\Adm\ProjectUpdateRequest;
 use App\Project;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class ProjectController extends AdmController
 {
@@ -24,7 +24,7 @@ class ProjectController extends AdmController
         return view('adm.project.create', compact('project', 'clients'));
     }
 
-    public function store(Request $request)
+    public function store(ProjectStoreRequest $request)
     {
         Project::create($request->all());
 
@@ -46,7 +46,7 @@ class ProjectController extends AdmController
         return view('adm.project.edit', compact('project', 'clients'));
     }
 
-    public function update(Request $request, Project $project)
+    public function update(ProjectUpdateRequest $request, Project $project)
     {
         $project->update($request->all());
 

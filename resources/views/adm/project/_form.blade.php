@@ -29,7 +29,7 @@
             @endif
         </div>
 
-        <div class="form-group shadow p-3 mb-3 bg-light rounded-lg required">
+        <div class="form-group shadow p-3 mb-3 bg-light rounded-lg">
             {!! Form::label('Срок предоставления исходной документации') !!}
             {!! Form::date('init_info_deadline_at', $project->init_info_deadline_at, ['class' => [' form-control', $errors->has('init_info_deadline_at') ? 'is-invalid' : '']]) !!}
 
@@ -40,7 +40,7 @@
             @endif
         </div>
 
-        <div class="form-group shadow p-3 mb-3 bg-light rounded-lg required">
+        <div class="form-group shadow p-3 mb-3 bg-light rounded-lg">
             {!! Form::label('Срок выдачи проекта') !!}
             {!! Form::date('issue_deadline_at', $project->issue_deadline_at, ['class' => [' form-control', $errors->has('issue_deadline_at') ? 'is-invalid' : '']]) !!}
 

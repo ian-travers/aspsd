@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Adm;
 
-use App\Http\Requests\User\PasswordRequest;
 use App\Http\Requests\User\UserStoreRequest;
 use App\Http\Requests\User\UserUpdateRequest;
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class UserController extends AdmController
 {

@@ -2,13 +2,14 @@
 
 namespace App\Http\Requests\Client;
 
+use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ClientUpdateRequest extends FormRequest
 {
     public function authorize()
     {
-        return true;
+        return Auth::user()->isSA() || Auth::user()->isNSI();
     }
 
     public function rules()
