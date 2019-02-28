@@ -62,12 +62,20 @@ class ProjectController extends Controller
 
     public function destroy(Project $project)
     {
-        $project->delete();
+        if ($project->isDeletable()) {
+            $project->delete();
 
-        return redirect()->route('projector.projects.index')->with([
-            'message' => 'Проект удален успешно',
-            'alert-type' => 'success',
+            return redirect()->route('projector.projects.index')->with([
+                'message' => 'Проект удален успешно',
+                'alert-type' => 'success',
+            ]);
+        }
+
+        return back()->with([
+            'message' => 'Удаление этого проекта запрещено. Есть подтверждения по одному или нескольким срокам!',
+            'alert-type' => 'warning',
         ]);
+
     }
 
     public function confirmInitInfo()

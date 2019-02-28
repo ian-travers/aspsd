@@ -25,6 +25,7 @@
                     Изменить
                 </a>
 
+                @if($project->isDeletable())
                 <form class="d-inline" action="{{ route('projector.projects.destroy', $project->id) }}" method="post">
 
                     @method('delete')
@@ -34,6 +35,11 @@
                         Удалить
                     </button>
                 </form>
+                @else
+                    <button type="button" class="btn btn-outline-danger btn-sm disabled">
+                        Удалить
+                    </button>
+                @endif
 
 
             </td>

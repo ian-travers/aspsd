@@ -148,4 +148,10 @@ class Project extends Model
         }
     }
 
+    // check for delete ability
+    public function isDeletable()
+    {
+        return !(isset($this->init_info_got_at) || isset($this->issued_at) || isset($this->expertise_passed_at));
+    }
+
 }

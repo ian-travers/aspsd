@@ -65,9 +65,7 @@ class ClientController extends NSIController
             return back();
         }
 
-
-
-        return redirect()->route('nsi.clients.index')->with([
+        return back()->with([
             'message' => 'Заказчик удален успешно',
             'alert-type' => 'success',
         ]);

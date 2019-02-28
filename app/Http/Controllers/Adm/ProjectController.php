@@ -41,7 +41,7 @@ class ProjectController extends AdmController
         return view('adm.project.edit', compact('project', 'clients'));
     }
 
-    public function update(ProjectUpdateRequest $request, Project $project)
+    public function update(ProjectUpdateRequest $request, Project $project, $page = null)
     {
         $project->update($request->all());
 
@@ -55,7 +55,7 @@ class ProjectController extends AdmController
     {
         $project->delete();
 
-        return redirect()->route('adm.projects.index')->with([
+        return back()->with([
             'message' => 'Проект удален успешно',
             'alert-type' => 'success',
         ]);

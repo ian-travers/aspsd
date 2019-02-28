@@ -21,6 +21,7 @@
                     Изменить
                 </a>
 
+                @if($client->isDeletable())
                 <form class="d-inline" action="{{ route('nsi.clients.destroy', $client) }}" method="post">
 
                     @method('delete')
@@ -29,6 +30,11 @@
                         Удалить
                     </button>
                 </form>
+                @else
+                    <button type="button" class="btn btn-outline-danger btn-sm disabled">
+                        Удалить
+                    </button>
+                @endif
 
 
             </td>
