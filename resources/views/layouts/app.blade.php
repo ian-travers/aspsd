@@ -33,5 +33,7 @@
 
 <!-- Scripts -->
 <script src="{{ mix('js/app.js', 'build') }}"></script>
+
+@include('layouts._izitoastAlerts')
 </body>
 </html>

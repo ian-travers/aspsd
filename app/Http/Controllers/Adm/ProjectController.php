@@ -34,11 +34,6 @@ class ProjectController extends AdmController
         ]);
     }
 
-    public function show($id)
-    {
-        //
-    }
-
     public function edit(Project $project)
     {
         $clients = Client::all();

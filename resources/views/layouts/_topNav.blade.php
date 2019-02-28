@@ -12,9 +12,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item {{ setActive('/') }}">
-                    <a class="nav-link" href="{{ route('home') }}">Проекты <span class="sr-only">(current)</span></a>
+
+                @can('projector-panel')
+
+                <li class="nav-item {{ setActive('projector') }}">
+                    <a class="nav-link" href="{{ route('projector.projects.index') }}">Учет проектов</a>
                 </li>
+                @endcan
 
                 @can('nsi-panel')
                     <li class="nav-item {{ setActive('nsi') }}">

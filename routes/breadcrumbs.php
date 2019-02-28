@@ -6,9 +6,20 @@ Breadcrumbs::for('home', function ($trail) {
     $trail->push('Главная', route('home'));
 });
 
-Breadcrumbs::for('projects', function ($trail) {
+// Projector
+Breadcrumbs::for('projector.projects.index', function ($trail) {
     $trail->parent('home');
-    $trail->push('Проекты', route('home'));
+    $trail->push('Учет проектов', route('projector.projects.index'));
+});
+
+Breadcrumbs::for('projector.projects.create', function ($trail) {
+    $trail->parent('projector.projects.index');
+    $trail->push('Новый');
+});
+
+Breadcrumbs::for('projector.projects.edit', function ($trail) {
+    $trail->parent('projector.projects.index');
+    $trail->push('Редактирование');
 });
 
 // NSI

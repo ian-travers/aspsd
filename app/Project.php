@@ -123,4 +123,29 @@ class Project extends Model
 
         return '';
     }
+
+    // check confirmation for the dates
+    public function isInitInfoGot(): bool
+    {
+        return isset($this->init_info_got_at);
+    }
+
+    public function isIssued(): bool
+    {
+        return isset($this->issued_at);
+    }
+
+    public function isExpertisePassed(): bool
+    {
+        return isset($this->expertise_passed_at);
+    }
+
+    // confirm the dates
+    public function confirmDate(string $field, Carbon $date = null)
+    {
+        if (isset($date)) {
+            $this->{$field} = $date;
+        }
+    }
+
 }
