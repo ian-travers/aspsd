@@ -12,6 +12,8 @@
 function setActive(string $path, string $class_name = "active")
 {
     $ap = Request::path();
-    return $ap === $path ? $class_name : "";
-//    return Request::path() === $path ? $class_name : "";
+
+    $apExploded = explode('/', $ap);
+
+    return $apExploded[0] === $path ? $class_name : "";
 }
