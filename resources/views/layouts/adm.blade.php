@@ -32,12 +32,14 @@
                     <nav class="nav flex-column">
                         <ul class="list-group">
                             <li class="list-group-item list-group-item-action">
-                                <a class="nav-link active" href="{{ route('adm.users.index') }}">Пользователи</a>
+                                <a class="nav-link" href="{{ route('adm.projects.index') }}">Проекты</a>
                             </li>
 
                             <li class="list-group-item list-group-item-action">
-                                <a class="nav-link" href="{{ route('adm.projects.index') }}">Проекты</a>
+                                <a class="nav-link" href="{{ route('adm.users.index') }}">Пользователи</a>
                             </li>
+
+
                         </ul>
 
                     </nav>

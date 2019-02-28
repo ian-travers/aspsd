@@ -25,7 +25,7 @@ Breadcrumbs::for('projector.projects.edit', function ($trail) {
 // NSI
 Breadcrumbs::for('nsi.', function ($trail) {
     $trail->parent('home');
-    $trail->push('НСИ', route('nsi.'));
+    $trail->push('НСИ');
 });
 
 Breadcrumbs::for('nsi.clients.index', function ($trail) {
@@ -46,7 +46,7 @@ Breadcrumbs::for('nsi.clients.edit', function ($trail) {
 // Adm
 Breadcrumbs::for('adm.', function ($trail) {
     $trail->parent('home');
-    $trail->push('Администрирование', route('adm.'));
+    $trail->push('Администрирование');
 });
 
 Breadcrumbs::for('adm.users.index', function ($trail) {

@@ -22,13 +22,13 @@
 
                 @can('nsi-panel')
                     <li class="nav-item {{ setActive('nsi') }}">
-                        <a class="nav-link" href="{{ route('nsi.') }}">НСИ</a>
+                        <a class="nav-link" href="{{ route('nsi.clients.index') }}">НСИ</a>
                     </li>
                 @endcan
 
                 @can('admin-panel')
                     <li class="nav-item {{ setActive('adm') }}">
-                        <a class="nav-link" href="{{ route('adm.') }}">Администрирование</a>
+                        <a class="nav-link" href="{{ route('adm.projects.index') }}">Администрирование</a>
                     </li>
                 @endcan
             </ul>

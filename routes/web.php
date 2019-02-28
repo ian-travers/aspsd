@@ -14,15 +14,13 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-//Route::get('/nsi', 'NSIController@index')->middleware('auth')->name('nsi');
-//Route::get('/adm', 'AdmController@index')->middleware('auth')->name('adm');
 
 Route::group(
     [
         'prefix' => 'projector',
         'as' => 'projector.',
         'namespace' => 'Projector',
-        'middleware' => ['auth'],
+        'middleware' => ['auth', 'can:projector-panel'],
     ],
     function () {
         Route::put('/projects/confirm-init-info', 'ProjectController@confirmInitInfo')->name('projects.confirm-init-info');
@@ -36,10 +34,9 @@ Route::group(
         'prefix' => 'nsi',
         'as' => 'nsi.',
         'namespace' => 'NSI',
-        'middleware' => ['auth'],
+        'middleware' => ['auth', 'can:nsi-panel'],
     ],
     function () {
-        Route::get('/', 'NSIController@index');
         Route::resource('/clients', 'ClientController');
     }
 );
@@ -50,10 +47,9 @@ Route::group(
         'prefix' => 'adm',
         'as' => 'adm.',
         'namespace' => 'Adm',
-        'middleware' => ['auth'],
+        'middleware' => ['auth', 'can:admin-panel'],
     ],
     function () {
-        Route::get('/', 'AdmController@index');
         Route::patch('/users/change-password-modal', 'UserController@changePasswordModal')->name('users.change-password-modal');
         Route::resource('/users', 'UserController');
         Route::resource('/projects', 'ProjectController');
