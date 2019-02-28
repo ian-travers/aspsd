@@ -24,3 +24,12 @@ body {
 .app-content {
   flex: 1;
 }
+
+.form-group.required label:after {
+  content: " *";
+  color: red;
+}
+
+span.required {
+  color: red;
+}

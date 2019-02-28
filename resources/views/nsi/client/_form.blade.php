@@ -1,4 +1,4 @@
-<div class="form-group shadow p-3 mb-4 bg-light rounded-lg">
+<div class="form-group shadow p-3 mb-3 bg-light rounded-lg required">
     <label for="name">Наименование</label>
     <input type="text" id="name" name="name" value="{{ old('name', $client->name) }}" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" autofocus>
 

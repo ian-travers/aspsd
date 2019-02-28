@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col">
-        <div class="form-group shadow p-3 mb-4 bg-light rounded-lg">
+        <div class="form-group shadow p-3 mb-3 bg-light rounded-lg required">
             <label for="name">Имя пользователя</label>
             <input type="text" id="name" name="name" value="{{ old('name', $user->name) }}"
                    class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" autofocus>
@@ -15,7 +15,7 @@
             @endif
         </div>
 
-        <div class="form-group shadow p-3 mb-4 bg-light rounded-lg">
+        <div class="form-group shadow p-3 mb-3 bg-light rounded-lg">
             <label for="email">Email</label>
             <input type="text" id="email" name="email" value="{{ old('email', $user->email) }}"
                    class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}">
@@ -28,7 +28,7 @@
             @endif
         </div>
 
-        <div class="form-group">
+        <div class="form-group shadow p-3 mb-3 bg-light rounded-lg required">
             <label for="role" class="col-form-label">Role</label>
             <select id="role" class="form-control {{ $errors->has('role') ? ' is-invalid' : '' }}" name="role">
                 @foreach ($roles as $value => $label)
