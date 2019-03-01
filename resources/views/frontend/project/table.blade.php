@@ -28,9 +28,15 @@
 
         <tr>
             <td class="text-center">
-                <a href="{{ route('projects.show', $project) }}" class="btn btn-outline-secondary btn-sm">
-                    Просмотр
-                </a>
+                @can('project-detail')
+                    <a href="{{ route('projects.show', $project) }}" class="btn btn-outline-secondary btn-sm">
+                        Просмотр
+                    </a>
+                @else
+                    <a href="#" class="btn btn-outline-secondary btn-sm disabled">
+                        Просмотр
+                    </a>
+                @endcan
             </td>
             <td>{{ $project->name }}</td>
             <td>{{ $project->client->name }}</td>
