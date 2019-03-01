@@ -13,14 +13,9 @@ use Illuminate\Support\Facades\Request;
 class ProjectController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('can:projector-panel');
-    }
-
     public function index()
     {
-        $projects = Project::orderBy('id', 'desc')->paginate(10);
+        $projects = Project::with('client')->orderBy('id', 'desc')->paginate(10);
 
         return view('projector.project.index', compact('projects'));
     }

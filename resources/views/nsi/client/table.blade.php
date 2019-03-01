@@ -1,7 +1,7 @@
 <table class="table table-bordered">
     <thead>
     <tr>
-        <td width="178">Действия</td>
+        <td width="178" class="text-center">Действия</td>
         <td>Наименование</td>
     </tr>
     </thead>
