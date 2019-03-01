@@ -9,7 +9,7 @@ class ProjectStoreRequest extends FormRequest
 {
     public function authorize()
     {
-        return Auth::user()->isSA();
+        return Auth::user()->isSA() || Auth::user()->isProjector();
     }
 
     public function rules()

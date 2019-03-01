@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td><em>Дата регистрации</em></td>
-                    <td>{{ $user->created_at->format('d.m.Y H:s') }}</td>
+                    <td>{{ $user->created_at ? $user->created_at->format('d.m.Y H:s') : '' }}</td>
                 </tr>
             </table>
         </div>
