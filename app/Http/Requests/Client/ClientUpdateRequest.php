@@ -9,7 +9,7 @@ class ClientUpdateRequest extends FormRequest
 {
     public function authorize()
     {
-        return Auth::user()->isSA() || Auth::user()->isNSI();
+        return Auth::user()->isSA() || Auth::user()->isNSI() || Auth::user()->isProjector();
     }
 
     public function rules()
