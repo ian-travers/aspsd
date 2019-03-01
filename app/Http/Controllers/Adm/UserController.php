@@ -26,7 +26,9 @@ class UserController extends AdmController
 
     public function store(UserStoreRequest $request)
     {
-        User::create($request->all());
+        $user = User::make($request->all());
+        $user->setPassword($user->password);
+        $user->saveOrFail();
 
         return redirect()->route('adm.users.index')->with([
             'message' => 'Пользователь сохранен успешно',
@@ -80,6 +82,11 @@ class UserController extends AdmController
                         'password.required' => 'Пароль не должен быть пустым',
                         'password.min' => 'Пароль не менее 4-х символов',
                     ]);
+
+                $user = User::findOrFail($request->input('userId'));
+                $user->setPassword($request->input('password'));
+                $user->saveOrFail();
+
             } catch (\Illuminate\Validation\ValidationException $e) {
                 $key = key($e->errors());
                 $message = $e->errors()[$key][0];

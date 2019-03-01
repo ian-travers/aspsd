@@ -41,7 +41,7 @@
         </div>
 
         @if(!$user->exists)
-            <div class="form-group shadow p-3 mb-4 bg-light rounded-lg">
+            <div class="form-group shadow p-3 mb-4 bg-light rounded-lg required">
                 <label for="password">Пароль</label>
                 <input type="text" id="password" name="password" value="{{ old('password', $user->password) }}"
                        class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}">

@@ -107,4 +107,8 @@ class User extends Authenticatable
         return (!empty($this->surname) && !empty($this->first_name) && !empty($this->patronymic_name)) ? title_case($this->surname . ' ' . $this->first_name . ' ' . $this->patronymic_name) : '';
     }
 
+    public function setPassword(string $password): void
+    {
+        if (strlen($password)) $this->password = bcrypt($password);
+    }
 }
