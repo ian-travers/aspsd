@@ -2,10 +2,6 @@
 
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 
-Breadcrumbs::for('home', function ($trail) {
-    $trail->push('Главная', route('home'));
-});
-
 // Projector
 Breadcrumbs::for('projector.projects.index', function ($trail) {
     $trail->parent('home');
@@ -78,4 +74,30 @@ Breadcrumbs::for('adm.projects.edit', function ($trail) {
     $trail->parent('adm.projects.index');
     $trail->push('Редактирование');
 });
+
+// Frontend
+Breadcrumbs::for('home', function ($trail) {
+    $trail->push('Главная', route('projects.index'));
+});
+
+Breadcrumbs::for('projects.index', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Проекты', route('projects.index'));
+});
+
+Breadcrumbs::for('projects.show', function ($trail) {
+    $trail->parent('projects.index');
+    $trail->push('Просмотр проекта');
+});
+
+Breadcrumbs::for('users.index', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Пользователи', route('users.index'));
+});
+
+Breadcrumbs::for('users.show', function ($trail) {
+    $trail->parent('users.index');
+    $trail->push('Просмотр пользователя');
+});
+
 

@@ -56,4 +56,10 @@ Route::group(
     }
 );
 
+// Frontend routes
+Route::resource('projects', 'ProjectController')->middleware('can:projects-frontend')->only(['index', 'show']);
+
+Route::resource('users', 'UserController')->middleware('can:users-frontend')->only(['index', 'show']);
+
+
 
