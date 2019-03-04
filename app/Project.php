@@ -49,6 +49,12 @@ class Project extends Model
         'init_info_deadline_at', 'issue_deadline_at', 'expertise_deadline_at', 'init_info_got_at',
         'issued_at', 'expertise_passed_at',
     ];
+
+    public function projectDocs()
+    {
+        return $this->hasMany(ProjectDoc::class);
+    }
+
     public function client()
     {
         return $this->belongsTo(Client::class);
