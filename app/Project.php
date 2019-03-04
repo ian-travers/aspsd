@@ -114,7 +114,8 @@ class Project extends Model
                 return self::CSS_EXPIRED_DATE;
             }
             if ($diffDays === 0) {
-                return self::CSS_TODAY_DATE;
+                $diffHours = $beginDate->diffInHours($endDate ?: now(), false);
+                return $diffHours > 0 ? self::CSS_TODAY_DATE : self::CSS_CLOSELY_DATE;
             }
             if ($diffDays >= -14 && $diffDays < 0) {
                 return self::CSS_CLOSELY_DATE;

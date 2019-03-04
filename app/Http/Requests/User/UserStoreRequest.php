@@ -7,11 +7,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UserStoreRequest extends FormRequest
 {
-    public function authorize()
-    {
-        return Auth::user()->isSA();
-    }
-
     public function rules()
     {
         return [
