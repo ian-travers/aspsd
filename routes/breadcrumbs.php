@@ -2,6 +2,10 @@
 
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 
+Breadcrumbs::for('home', function ($trail) {
+    $trail->push('Главная', route('home'));
+});
+
 // Projector
 Breadcrumbs::for('projector.projects.index', function ($trail) {
     $trail->parent('home');
@@ -93,10 +97,6 @@ Breadcrumbs::for('adm.projects.edit', function ($trail) {
 });
 
 // Frontend
-Breadcrumbs::for('home', function ($trail) {
-    $trail->push('Главная', route('projects.index'));
-});
-
 Breadcrumbs::for('projects.index', function ($trail) {
     $trail->parent('home');
     $trail->push('Проекты', route('projects.index'));
