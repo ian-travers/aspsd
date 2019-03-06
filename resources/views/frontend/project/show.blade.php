@@ -70,8 +70,24 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <div class="card border-primary mt-2">
+        <div class="card-header">
+            <span style="font-size: 1.5rem; line-height: 1.2">Исходные документы для проекта</span>
+        </div>
 
+        <div class="card-body">
+
+            @if(!$project->projectDocs()->count())
+
+                <div class="alert alert-warning">
+                    <h4>Документы не найдены</h4>
+                </div>
+            @else
+                @include('doc.table')
+            @endif
         </div>
     </div>
 @endsection

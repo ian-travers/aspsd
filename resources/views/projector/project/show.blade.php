@@ -42,11 +42,8 @@
                 </div>
             @else
                 @include('doc.table')
-
             @endif
-
         </div>
-
     </div>
 @endsection
 
