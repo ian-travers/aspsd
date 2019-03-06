@@ -84,7 +84,7 @@ class ProjectController extends Controller
 
     public function confirmInitInfo()
     {
-        $id = key(Request::query());
+        $id = key(\Request::query());
 
         /* @var Project $project */
         $project = Project::findOrFail($id);
@@ -99,7 +99,7 @@ class ProjectController extends Controller
 
     public function confirmIssued()
     {
-        $id = key(Request::query());
+        $id = key(\Request::query());
 
         /* @var Project $project */
         $project = Project::findOrFail($id);
@@ -114,7 +114,7 @@ class ProjectController extends Controller
 
     public function confirmExpertisePassed()
     {
-        $id = key(Request::query());
+        $id = key(\Request::query());
 
         /* @var Project $project */
         $project = Project::findOrFail($id);
