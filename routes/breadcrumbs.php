@@ -18,6 +18,17 @@ Breadcrumbs::for('projector.projects.edit', function ($trail) {
     $trail->push('Редактирование');
 });
 
+Breadcrumbs::for('projector.projects.show', function ($trail, \App\Project $project) {
+    $trail->parent('projector.projects.index');
+    $trail->push($project->name, route('projector.projects.show', $project->id));
+});
+
+Breadcrumbs::for('projector.projects.docs.add', function ($trail, \App\Project $project) {
+    $trail->parent('projector.projects.show', $project);
+    $trail->push('Новый документ');
+});
+
+
 // NSI
 Breadcrumbs::for('nsi.', function ($trail) {
     $trail->parent('home');
@@ -38,6 +49,7 @@ Breadcrumbs::for('nsi.clients.edit', function ($trail) {
     $trail->parent('nsi.clients.index');
     $trail->push('Редактирование');
 });
+
 
 // Adm
 Breadcrumbs::for('adm.', function ($trail) {

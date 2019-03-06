@@ -23,9 +23,17 @@ Route::group(
         'middleware' => ['auth', 'can:projector-panel'],
     ],
     function () {
+
+        Route::get('/projects/{project}/docs/add', 'ProjectController@addDoc')->name('projects.docs.add');
+        Route::post('/projects/docs/store', 'ProjectController@storeDoc')->name('projects.docs.store');
+
+
         Route::put('/projects/confirm-init-info', 'ProjectController@confirmInitInfo')->name('projects.confirm-init-info');
         Route::put('/projects/confirm-issued', 'ProjectController@confirmIssued')->name('projects.confirm-issued');
         Route::put('/projects/confirm-expertise-passed', 'ProjectController@confirmExpertisePassed')->name('projects.confirm-expertise-passed');
+
+
+
         Route::resource('/projects', 'ProjectController');
     }
 );

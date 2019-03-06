@@ -1,0 +1,46 @@
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <td width="254" class="text-center">Действия</td>
+        <td>Наименование</td>
+        <td>Организация</td>
+        <td>Дата документа</td>
+        <td>ФИО</td>
+    </tr>
+    </thead>
+    <tbody>
+
+    @php /* @var App\ProjectDoc $doc */ @endphp
+
+    @foreach($project->projectDocs as $doc)
+
+        <tr>
+            <td class="text-center">
+
+                <a href="#" class="btn btn-outline-secondary btn-sm">
+                    Изменить
+                </a>
+
+                <form class="d-inline" action="#" method="post">
+
+                    @method('delete')
+                    @csrf
+                    <button type="submit" onclick="return confirm('Подтверждаете удаление?')"
+                            class="btn btn-outline-danger btn-sm">
+                        Удалить
+                    </button>
+                </form>
+
+            </td>
+            <td>{{ $doc->name }}</td>
+            <td>{{ $doc->organization }}</td>
+            <td>{{ $doc->doc_date ? $doc->date : ''}}</td>
+            <td>{{ $doc->signer_name }}</td>
+        </tr>
+    @endforeach
+
+    </tbody>
+</table>
+
+
+

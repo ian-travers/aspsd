@@ -22,10 +22,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ProjectDoc extends Model
 {
-    protected $fillable = [
-        'name', 'project_id', 'organization', 'signer_name', 'doc_date',
+    public $timestamps = false;
+
+    protected $dates = [
+        'doc_date',
     ];
 
+    protected $guarded = [
+        'id',
+    ];
     public function project()
     {
         return $this->belongsTo(Project::class);

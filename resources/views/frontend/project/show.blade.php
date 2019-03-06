@@ -13,6 +13,7 @@
             <div>
                 <p><span class="text-muted">Заказчик:</span> {{ $project->client->name }}</p>
             </div>
+
             @if($project->description)
                 <div class="text-muted mb-1">Краткое описание проекта</div>
                 <div class="lead">{{ $project->description }}</div>

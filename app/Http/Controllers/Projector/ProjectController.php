@@ -5,11 +5,22 @@ namespace App\Http\Controllers\Projector;
 use App\Client;
 use App\Http\Requests\Adm\ProjectStoreRequest;
 use App\Http\Requests\Adm\ProjectUpdateRequest;
+use App\Http\Requests\ProjectDoc\DocRequest;
 use App\Project;
 use App\Http\Controllers\Controller;
+use App\ProjectDoc;
+use App\UseCases\Projects\ProjectService;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+    private $projectService;
+
+    public function __construct(ProjectService $projectService)
+    {
+
+        $this->projectService = $projectService;
+    }
 
     public function index()
     {
@@ -73,7 +84,7 @@ class ProjectController extends Controller
 
     public function confirmInitInfo()
     {
-        $id = key(\Request::query());
+        $id = key(Request::query());
 
         /* @var Project $project */
         $project = Project::findOrFail($id);
@@ -88,7 +99,7 @@ class ProjectController extends Controller
 
     public function confirmIssued()
     {
-        $id = key(\Request::query());
+        $id = key(Request::query());
 
         /* @var Project $project */
         $project = Project::findOrFail($id);
@@ -103,7 +114,7 @@ class ProjectController extends Controller
 
     public function confirmExpertisePassed()
     {
-        $id = key(\Request::query());
+        $id = key(Request::query());
 
         /* @var Project $project */
         $project = Project::findOrFail($id);
@@ -112,6 +123,31 @@ class ProjectController extends Controller
 
         return back()->with([
             'message' => 'Прохождение госстройэкспертизы потверждено',
+            'alert-type' => 'success',
+        ]);
+    }
+
+    public function show(Project $project)
+    {
+        return view('projector.project.show', compact('project'));
+    }
+
+    // Project docs manage
+
+    public function addDoc(Project $project)
+    {
+        $doc = new ProjectDoc();
+
+        return view('doc.create', compact('project', 'doc'));
+    }
+
+    public function storeDoc(DocRequest $request)
+    {
+        $projectId = $request['project_id'];
+        ProjectDoc::create($request->all());
+
+        return redirect()->route('projector.projects.show', $projectId)->with([
+            'message' => 'Документ сохранен успешно',
             'alert-type' => 'success',
         ]);
     }

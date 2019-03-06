@@ -1,7 +1,7 @@
 <table class="table table-bordered">
     <thead>
     <tr>
-        <td width="174" class="text-center">Действия</td>
+        <td width="254" class="text-center">Действия</td>
         <td>Наименование</td>
         <td>Заказчик</td>
         <td>Срок исх. документации</td>
@@ -20,6 +20,10 @@
 
         <tr>
             <td class="text-center">
+
+                <a href="{{ route('projector.projects.show', $project->id) }}" class="btn btn-outline-info btn-sm">
+                    Просмотр
+                </a>
 
                 <a href="{{ route('projector.projects.edit', $project->id) }}" class="btn btn-outline-secondary btn-sm">
                     Изменить
