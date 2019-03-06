@@ -28,6 +28,11 @@ Breadcrumbs::for('projector.projects.docs.add', function ($trail, \App\Project $
     $trail->push('Новый документ');
 });
 
+Breadcrumbs::for('projector.projects.docs.edit', function ($trail, \App\Project $project) {
+    $trail->parent('projector.projects.show', $project);
+    $trail->push('Редактирование документа');
+});
+
 
 // NSI
 Breadcrumbs::for('nsi.', function ($trail) {

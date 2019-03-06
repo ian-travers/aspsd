@@ -26,7 +26,9 @@ Route::group(
 
         Route::get('/projects/{project}/docs/add', 'ProjectController@addDoc')->name('projects.docs.add');
         Route::post('/projects/docs/store', 'ProjectController@storeDoc')->name('projects.docs.store');
-
+        Route::get('/projects/{project}/docs/{doc}/edit', 'ProjectController@editDoc')->name('projects.docs.edit');
+        Route::put('/projects/docs/{doc}', 'ProjectController@updateDoc')->name('projects.docs.update');
+        Route::delete('/projects/{project}/docs/{doc}', 'ProjectController@destroyDoc')->name('projects.docs.destroy');
 
         Route::put('/projects/confirm-init-info', 'ProjectController@confirmInitInfo')->name('projects.confirm-init-info');
         Route::put('/projects/confirm-issued', 'ProjectController@confirmIssued')->name('projects.confirm-issued');

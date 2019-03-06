@@ -151,4 +151,29 @@ class ProjectController extends Controller
             'alert-type' => 'success',
         ]);
     }
+
+    public function editDoc(Project $project, ProjectDoc $doc)
+    {
+        return view('doc.edit', compact('project', 'doc'));
+    }
+
+    public function updateDoc(DocRequest $request, ProjectDoc $doc)
+    {
+        $doc->update($request->all());
+
+        return redirect()->route('projector.projects.show', $doc->project_id)->with([
+            'message' => 'Документ сохранен успешно',
+            'alert-type' => 'success',
+        ]);
+    }
+
+    public function destroyDoc(Project $project, ProjectDoc $doc)
+    {
+        $doc->delete();
+
+        return redirect()->route('projector.projects.show', $project)->with([
+            'message' => 'Документ удален успешно',
+            'alert-type' => 'success',
+        ]);
+    }
 }

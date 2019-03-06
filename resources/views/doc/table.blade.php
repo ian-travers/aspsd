@@ -1,7 +1,7 @@
 <table class="table table-bordered">
     <thead>
     <tr>
-        <td width="254" class="text-center">Действия</td>
+        <td width="174" class="text-center">Действия</td>
         <td>Наименование</td>
         <td>Организация</td>
         <td>Дата документа</td>
@@ -17,11 +17,11 @@
         <tr>
             <td class="text-center">
 
-                <a href="#" class="btn btn-outline-secondary btn-sm">
+                <a href="{{ route('projector.projects.docs.edit', [$project, $doc]) }}" class="btn btn-outline-secondary btn-sm">
                     Изменить
                 </a>
 
-                <form class="d-inline" action="#" method="post">
+                <form class="d-inline" action="{{ route('projector.projects.docs.destroy', [$project, $doc]) }}" method="post">
 
                     @method('delete')
                     @csrf
