@@ -1,6 +1,6 @@
 <table class="table table-bordered">
     <thead>
-    <tr>
+    <tr class="bg-light">
 
         @can('projector-panel')
             <td width="174" class="text-center">Действия</td>

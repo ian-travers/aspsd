@@ -1,6 +1,6 @@
 <table class="table table-bordered">
     <thead>
-    <tr>
+    <tr class="bg-light">
         <td width="292" class="text-center">Действия</td>
         <td>Имя пользователя</td>
         <td>ФИО</td>

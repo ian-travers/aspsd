@@ -1,6 +1,6 @@
 <table class="table table-bordered">
     <thead>
-    <tr>
+    <tr class="bg-light">
         <td width="174" class="text-center" rowspan="2">Действия</td>
         <td rowspan="2">Наименование</td>
         <td rowspan="2">Заказчик</td>
@@ -8,7 +8,7 @@
         <td colspan="2">Срок выдачи проекта</td>
         <td colspan="2">Срок госстройэкспертизы</td>
     </tr>
-    <tr>
+    <tr class="bg-light">
         <td class="text-center" width="7%">План</td>
         <td class="text-center" width="7%">Факт</td>
         <td class="text-center" width="7%">План</td>
