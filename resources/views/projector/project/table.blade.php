@@ -1,12 +1,12 @@
 <table class="table table-bordered">
     <thead>
-    <tr>
+    <tr class="bg-light">
         <td width="254" class="text-center">Действия</td>
         <td>Наименование</td>
         <td>Заказчик</td>
-        <td>Срок исх. документации</td>
-        <td>Срок выдачи проекта</td>
-        <td>Срок госстройэкспертизы</td>
+        <td width="12%">Срок исх. документации</td>
+        <td width="12%">Срок выдачи проекта</td>
+        <td width="12%">Срок госстройэкспертизы</td>
     </tr>
     </thead>
     <tbody>

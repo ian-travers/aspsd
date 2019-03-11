@@ -30,8 +30,11 @@
         </div>
 
         <div class="form-group shadow p-3 mb-3 bg-light rounded-lg">
-            {!! Form::label('Срок предоставления исходной документации') !!}
-            {!! Form::date('init_info_deadline_at', $project->init_info_deadline_at, ['class' => [' form-control', $errors->has('init_info_deadline_at') ? 'is-invalid' : '']]) !!}
+{{--            {!! Form::label('Срок предоставления исходной документации') !!}--}}
+{{--            {!! Form::date('init_info_deadline_at', $project->init_info_deadline_at, ['class' => [' form-control', $errors->has('init_info_deadline_at') ? 'is-invalid' : '']]) !!}--}}
+            <label for="init_info_deadline_at">Срок предоставления исходной документации</label>
+            <input type="date" id="init_info_deadline_at" name="init_info_deadline_at" value="{{ old('init_info_deadline_at', $project->name) }}"
+                   class="form-control {{ $errors->has('init_info_deadline_at') ? 'is-invalid' : '' }}">
 
             @if($errors->has('init_info_deadline_at'))
                 <div class="invalid-feedback">
