@@ -84,28 +84,28 @@
         </div>
 
         <div class="form-group shadow p-3 mb-4 bg-light rounded-lg">
-            <label for="firstName">Имя</label>
-            <input type="text" id="firstName" name="firstName" value="{{ old('firstName', $user->first_name) }}"
-                   class="form-control {{ $errors->has('firstName') ? 'is-invalid' : '' }}">
+            <label for="first_name">Имя</label>
+            <input type="text" id="first_name" name="first_name" value="{{ old('first_name', $user->first_name) }}"
+                   class="form-control {{ $errors->has('first_name') ? 'is-invalid' : '' }}">
 
-            @if($errors->has('firstName'))
+            @if($errors->has('first_name'))
 
                 <div class="invalid-feedback">
-                    <strong>{{ $errors->first('firstName') }}</strong>
+                    <strong>{{ $errors->first('first_name') }}</strong>
                 </div>
             @endif
         </div>
 
         <div class="form-group shadow p-3 mb-4 bg-light rounded-lg">
-            <label for="patronymicName">Отчество</label>
-            <input type="text" id="patronymicName" name="patronymicName"
-                   value="{{ old('patronymicName', $user->patronymic_name) }}"
-                   class="form-control {{ $errors->has('patronymicName') ? 'is-invalid' : '' }}">
+            <label for="patronymic_name">Отчество</label>
+            <input type="text" id="patronymic_name" name="patronymic_name"
+                   value="{{ old('patronymic_name', $user->patronymic_name) }}"
+                   class="form-control {{ $errors->has('patronymic_name') ? 'is-invalid' : '' }}">
 
-            @if($errors->has('patronymicName'))
+            @if($errors->has('patronymic_name'))
 
                 <div class="invalid-feedback">
-                    <strong>{{ $errors->first('patronymicName') }}</strong>
+                    <strong>{{ $errors->first('patronymic_name') }}</strong>
                 </div>
             @endif
         </div>
