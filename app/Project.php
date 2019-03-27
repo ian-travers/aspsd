@@ -131,6 +131,11 @@ class Project extends Model
         return '';
     }
 
+    public function isExpertiseNeeds()
+    {
+        return isset($this->expertise_deadline_at);
+    }
+
     // check confirmation for the dates
     public function isInitInfoGot(): bool
     {

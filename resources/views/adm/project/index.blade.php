@@ -25,8 +25,10 @@
                     <h3>Записи не найдены</h3>
                 </div>
             @else
-                @include('adm.project.table')
 
+                <div class="row">
+                    @include('adm.project.table')
+                </div>
                 <div class="mt-3">
                     {{ $projects->links() }}
                 </div>

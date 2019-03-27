@@ -1,7 +1,7 @@
 <table class="table table-bordered">
     <thead>
     <tr class="bg-light">
-        <td width="98" class="text-center" rowspan="2">Действия</td>
+        <td width="8%" class="text-center" rowspan="2">Действия</td>
         <td rowspan="2">Наименование</td>
         <td rowspan="2">Заказчик</td>
         <td colspan="2">Срок исх. документации</td>
@@ -19,19 +19,18 @@
     </thead>
     <tbody>
 
-    @php
-        /* @var App\Project $project */
-
-    @endphp
+    @php /* @var App\Project $project */ @endphp
 
     @foreach($projects as $project)
 
         <tr>
             <td class="text-center">
+
                 @can('project-detail')
                     <a href="{{ route('projects.show', $project) }}" class="btn btn-outline-secondary btn-sm">
                         Просмотр
                     </a>
+
                 @else
                     <a href="#" class="btn btn-outline-secondary btn-sm disabled">
                         Просмотр

@@ -26,8 +26,10 @@
                     <h3>Записи не найдены</h3>
                 </div>
             @else
-                @include('projector.project.table')
 
+                <div class="row">
+                    @include('projector.project.table')
+                </div>
                 <div class="mt-3">
                     {{ $projects->links() }}
                 </div>

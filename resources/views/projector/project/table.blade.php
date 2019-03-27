@@ -1,7 +1,7 @@
 <table class="table table-bordered">
     <thead>
     <tr class="bg-light">
-        <td width="254" class="text-center">Действия</td>
+        <td width="22%" class="text-center">Действия</td>
         <td>Наименование</td>
         <td>Заказчик</td>
         <td width="14%">Срок исх. документации</td>
@@ -11,10 +11,7 @@
     </thead>
     <tbody>
 
-    @php
-        /* @var App\Project $project */
-
-    @endphp
+    @php /* @var App\Project $project */ @endphp
 
     @foreach($projects as $project)
 
@@ -76,16 +73,19 @@
                 @endif
             </td>
             <td class="text-center {{ $project->expertiseCellCSS }}">
-                {{ $project->expertiseDeadline }}
 
-                @if(!$project->isExpertisePassed())
-                    <form action="{{ route('projector.projects.confirm-expertise-passed', $project) }}" method="post">
-                        @method('put')
-                        @csrf
-                        <button type="submit" onclick="return confirm('Подтверждаете выдачу проекта?')" class="btn btn-sm btn-success">Подтвердить экспетизу</button>
-                    </form>
-                @else
-                    <span class="pl-2 text-success font-weight-bold" title="{{$project->expertise_passed_at}}">&#10004;</span>
+                @if($project->isExpertiseNeeds())
+                    {{ $project->expertiseDeadline }}
+
+                    @if(!$project->isExpertisePassed())
+                        <form action="{{ route('projector.projects.confirm-expertise-passed', $project) }}" method="post">
+                            @method('put')
+                            @csrf
+                            <button type="submit" onclick="return confirm('Подтверждаете выдачу проекта?')" class="btn btn-sm btn-success">Подтвердить экспетизу</button>
+                        </form>
+                    @else
+                        <span class="pl-2 text-success font-weight-bold" title="{{$project->expertise_passed_at}}">&#10004;</span>
+                    @endif
                 @endif
             </td>
 
