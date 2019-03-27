@@ -21,7 +21,7 @@
             @endif
             <div class="row">
                 <div class="col">
-                    <div class="text-muted mb-2">Сроки исполнения проекта</div>
+                    <div class="text-muted mb-2">Сроки исполнения проекта (план / факт)</div>
                     <div class="row">
                         <div class="col">
                             Исходная документация:
@@ -40,8 +40,8 @@
                         <div class="col">
                             Госстройэкспертиза:
                         </div>
-                        <div class="col text-center">{{ $project->issueDeadline }}</div>
-                        <div class="col text-center">{{ $project->issued }}</div>
+                        <div class="col text-center">{{ $project->expertiseDeadline }}</div>
+                        <div class="col text-center">{{ $project->expertisePassed }}</div>
                     </div>
                 </div>
                 <div class="col">
