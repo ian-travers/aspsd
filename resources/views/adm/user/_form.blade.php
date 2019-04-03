@@ -15,7 +15,7 @@
             @endif
         </div>
 
-        <div class="form-group shadow p-3 mb-3 bg-light rounded-lg">
+        <div class="form-group shadow p-3 mb-3 bg-light rounded-lg required">
             <label for="email">Email</label>
             <input type="text" id="email" name="email" value="{{ old('email', $user->email) }}"
                    class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}">
