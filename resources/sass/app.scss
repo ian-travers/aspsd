@@ -15,6 +15,10 @@
 // iziToast
 @import "~izitoast/dist/css/iziToast.min.css";
 
+// Font-awesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+
 body {
   display: flex;
   min-height: 100vh;
