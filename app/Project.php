@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 /**
  * Class Project
@@ -36,6 +37,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Project extends Model
 {
+    use Sortable;
+
     const CSS_EXPIRED_DATE = 'bg-primary';
     const CSS_CLOSELY_DATE = 'bg-warning';
     const CSS_TODAY_DATE = 'bg-danger';

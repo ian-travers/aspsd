@@ -2,10 +2,10 @@
     <thead>
     <tr class="bg-light">
         <td width="8%" class="text-center" rowspan="2">Действия</td>
-        <td rowspan="2">Наименование</td>
-        <td rowspan="2">Заказчик</td>
-        <td colspan="2">Срок исх. документации</td>
-        <td colspan="2">Срок выдачи проекта</td>
+        <td rowspan="2">@sortablelink('name', 'Наименование')</td>
+        <td rowspan="2">@sortablelink('client_id', 'Заказчик')</td>
+        <td colspan="2">@sortablelink('init_info_deadline_at', 'Срок исх. документации')</td>
+        <td colspan="2">@sortablelink('issue_deadline_at', 'Срок выдачи проекта')</td>
         <td colspan="2">Срок госстройэкспертизы</td>
     </tr>
     <tr class="bg-light">

@@ -30,7 +30,7 @@
                     @include('adm.project.table')
                 </div>
                 <div class="mt-3">
-                    {{ $projects->links() }}
+                    {{ $projects->appends(request()->except('page'))->links() }}
                 </div>
             @endif
 
