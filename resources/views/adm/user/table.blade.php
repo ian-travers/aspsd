@@ -1,7 +1,7 @@
 <table class="table table-bordered">
     <thead>
     <tr class="bg-light">
-        <td width="292" class="text-center">Действия</td>
+        <td width="14%" class="text-center">Действия</td>
         <td>Имя пользователя</td>
         <td>ФИО</td>
         <td>Должность</td>
@@ -20,29 +20,24 @@
         <tr>
             <td class="text-center">
 
-                <a href="{{ route('adm.users.edit', $user->id) }}" class="btn btn-outline-secondary btn-sm">
-                    Изменить
-                </a>
+                <a href="{{ route('adm.users.edit', $user->id) }}" class="btn btn-outline-secondary btn-sm fa fa-pen" title="Изменить"></a>
 
                 <button
                         type="button"
-                        class="btn btn-sm btn-outline-primary bootstrap-modal-form-open"
+                        class="btn btn-sm btn-outline-primary bootstrap-modal-form-open fa fa-key"
+                        title="Сменить пароль"
                         data-toggle="modal"
                         data-target="#changePasswordModal"
                         data-user-id="{{ $user->id }}"
                         data-user-name="{{ $user->name }}"
-                >
-                    Сменить пароль
-                </button>
+                ></button>
 
                 <form class="d-inline" action="{{ route('adm.users.destroy', $user) }}" method="post">
 
                     @method('delete')
                     @csrf
                     <button type="submit" onclick="return confirm('Подтверждаете удаление?')"
-                            class="btn btn-outline-danger btn-sm">
-                        Удалить
-                    </button>
+                            class="btn btn-outline-danger btn-sm fa fa-trash" title="Удалить"></button>
                 </form>
 
 

@@ -1,12 +1,12 @@
 <table class="table table-bordered">
     <thead>
     <tr class="bg-light">
-        <td width="22%" class="text-center">Действия</td>
+        <td width="10%" class="text-center">Действия</td>
         <td>@sortablelink('name', 'Наименование')</td>
-        <td>@sortablelink('client_id', 'Заказчик')</td>
-        <td width="14%">@sortablelink('init_info_deadline_at', 'Срок исх. документации')</td>
-        <td width="14%">@sortablelink('issue_deadline_at', 'Срок выдачи проекта')</td>
-        <td width="14%">Срок госстройэкспертизы</td>
+        <td width="10%">@sortablelink('client_id', 'Заказчик')</td>
+        <td width="16%">@sortablelink('init_info_deadline_at', 'Срок исх. документации')</td>
+        <td width="16%">@sortablelink('issue_deadline_at', 'Срок выдачи проекта')</td>
+        <td width="16%">Срок госстройэкспертизы</td>
     </tr>
     </thead>
     <tbody>
@@ -18,13 +18,9 @@
         <tr>
             <td class="text-center">
 
-                <a href="{{ route('projector.projects.show', $project->id) }}" class="btn btn-outline-info btn-sm">
-                    Просмотр
-                </a>
+                <a href="{{ route('projector.projects.show', $project->id) }}" class="btn btn-outline-info btn-sm fa fa-eye" title="Посмотреть"></a>
 
-                <a href="{{ route('projector.projects.edit', $project->id) }}" class="btn btn-outline-secondary btn-sm">
-                    Изменить
-                </a>
+                <a href="{{ route('projector.projects.edit', $project->id) }}" class="btn btn-outline-secondary btn-sm fa fa-pen" title="Изменить"></a>
 
                 @if($project->isDeletable())
                 <form class="d-inline" action="{{ route('projector.projects.destroy', $project->id) }}" method="post">
@@ -32,13 +28,11 @@
                     @method('delete')
                     @csrf
                     <button type="submit" onclick="return confirm('Подтверждаете удаление?')"
-                            class="btn btn-outline-danger btn-sm">
-                        Удалить
+                            class="btn btn-outline-danger btn-sm fa fa-trash" title="Удалить">
                     </button>
                 </form>
                 @else
-                    <button type="button" class="btn btn-outline-danger btn-sm disabled">
-                        Удалить
+                    <button type="button" class="btn btn-outline-danger btn-sm fa fa-trash disabled">
                     </button>
                 @endif
 

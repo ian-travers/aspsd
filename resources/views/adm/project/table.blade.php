@@ -1,7 +1,7 @@
 <table class="table table-bordered">
     <thead>
     <tr class="bg-light">
-        <td rowspan="2" class="text-center" width="16%">Действия</td>
+        <td rowspan="2" class="text-center" width="8%">Действия</td>
         <td rowspan="2">@sortablelink('name', 'Наименование')</td>
         <td rowspan="2">@sortablelink('client_id', 'Заказчик')</td>
         <td colspan="2">@sortablelink('init_info_deadline_at', 'Срок исх. документации')</td>
@@ -9,12 +9,12 @@
         <td colspan="2">Срок госстройэкспертизы</td>
     </tr>
     <tr class="bg-light">
-        <td class="text-center" width="7%">План</td>
-        <td class="text-center" width="7%">Факт</td>
-        <td class="text-center" width="7%">План</td>
-        <td class="text-center" width="7%">Факт</td>
-        <td class="text-center" width="8%">План</td>
-        <td class="text-center" width="8%">Факт</td>
+        <td class="text-center" width="9%">План</td>
+        <td class="text-center" width="9%">Факт</td>
+        <td class="text-center" width="9%">План</td>
+        <td class="text-center" width="9%">Факт</td>
+        <td class="text-center" width="9%">План</td>
+        <td class="text-center" width="9%">Факт</td>
     </tr>
     </thead>
     <tbody>
@@ -26,17 +26,14 @@
         <tr>
             <td class="text-center">
 
-                <a href="{{ route('adm.projects.edit', $project->id) }}" class="btn btn-outline-secondary btn-sm">
-                    Изменить
-                </a>
+                <a href="{{ route('adm.projects.edit', $project->id) }}" class="fa fa-pen btn btn-outline-secondary btn-sm" title="Изменить"></a>
 
                 <form class="d-inline" action="{{ route('adm.projects.destroy', $project) }}" method="post">
 
                     @method('delete')
                     @csrf
                     <button type="submit" onclick="return confirm('Подтверждаете удаление?')"
-                            class="btn btn-outline-danger btn-sm">
-                        Удалить
+                            class="btn btn-outline-danger btn-sm fa fa-trash" title="Удалить">
                     </button>
                 </form>
 
