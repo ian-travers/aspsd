@@ -10,10 +10,7 @@
     </thead>
     <tbody>
 
-    @php
-        /* @var App\User $user */
-
-    @endphp
+    @php /* @var App\User $user */ @endphp
 
     @foreach($users as $user)
 
