@@ -11,7 +11,14 @@ class ProjectController extends AdmController
 {
     public function index()
     {
-        $projects = Project::with('client')->sortable()->paginate(10);
+        $projects = request('term')
+            ? Project::with('client')
+                ->filter(request()->only('term'))
+                ->sortable()
+                ->paginate(10)
+            : Project::with('client')
+                ->sortable()
+                ->paginate(10);
 
         return view('adm.project.index', compact('projects'));
     }

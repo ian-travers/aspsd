@@ -10,7 +10,6 @@ use App\Project;
 use App\Http\Controllers\Controller;
 use App\ProjectDoc;
 use App\UseCases\Projects\ProjectService;
-use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -24,7 +23,14 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $projects = Project::with('client')->sortable()->paginate(10);
+        $projects = request('term')
+            ? Project::with('client')
+                ->filter(request()->only('term'))
+                ->sortable()
+                ->paginate(10)
+            : Project::with('client')
+                ->sortable()
+                ->paginate(10);
 
         return view('projector.project.index', compact('projects'));
     }

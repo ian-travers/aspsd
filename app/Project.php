@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
@@ -167,6 +168,16 @@ class Project extends Model
     public function isDeletable()
     {
         return !(isset($this->init_info_got_at) || isset($this->issued_at) || isset($this->expertise_passed_at));
+    }
+
+    public function scopeFilter(Builder $query, $filter)
+    {
+        if (isset($filter['term']) && $term = $filter['term']) {
+            $query->where(function ($q) use ($term) {
+                $q->orWhere('name', 'like', "%{$term}%");
+                $q->orWhere('description', 'like', "%{$term}%");
+            });
+        }
     }
 
 }
