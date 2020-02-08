@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Builder;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Kyslik\ColumnSortable\Sortable;
 
 /**
@@ -180,4 +181,26 @@ class Project extends Model
         }
     }
 
+    public function scopeYear(Builder $query, $filter)
+    {
+        if (isset($filter['year']) && $year = $filter['year']) {
+
+
+            $query->where(function ($q) use ($year) {
+                $q->orWhereYear('issue_deadline_at', '=', "{$year}");
+            });
+        }
+    }
+
+    public static function getProjectsYears(): array
+    {
+        return Cache::remember('years', 1440, function () {
+            $result = Project::select(\DB::raw('YEAR(issue_deadline_at) as year'))
+            ->distinct()
+            ->orderBy('year', 'DESC')
+            ->get();
+
+            return array_filter($result->pluck('year')->toArray());
+        });
+    }
 }

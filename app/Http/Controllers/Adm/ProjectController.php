@@ -6,21 +6,27 @@ use App\Client;
 use App\Http\Requests\Adm\ProjectStoreRequest;
 use App\Http\Requests\Adm\ProjectUpdateRequest;
 use App\Project;
+use Carbon\Carbon;
 
 class ProjectController extends AdmController
 {
     public function index()
     {
+        $years = Project::getProjectsYears();
+
+        $selectedYear = request('year') ?? Carbon::now()->year;
+
         $projects = request('term')
             ? Project::with('client')
                 ->filter(request()->only('term'))
                 ->sortable()
                 ->paginate(10)
             : Project::with('client')
+                ->year(['year' => $selectedYear])
                 ->sortable()
                 ->paginate(10);
 
-        return view('adm.project.index', compact('projects'));
+        return view('adm.project.index', compact('projects', 'years', 'selectedYear'));
     }
 
     public function create()

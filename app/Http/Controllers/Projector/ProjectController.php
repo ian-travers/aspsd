@@ -10,6 +10,7 @@ use App\Project;
 use App\Http\Controllers\Controller;
 use App\ProjectDoc;
 use App\UseCases\Projects\ProjectService;
+use Carbon\Carbon;
 
 class ProjectController extends Controller
 {
@@ -23,16 +24,21 @@ class ProjectController extends Controller
 
     public function index()
     {
+        $years = Project::getProjectsYears();
+
+        $selectedYear = request('year') ?? Carbon::now()->year;
+
         $projects = request('term')
             ? Project::with('client')
                 ->filter(request()->only('term'))
                 ->sortable()
                 ->paginate(10)
             : Project::with('client')
+                ->year(['year' => $selectedYear])
                 ->sortable()
                 ->paginate(10);
 
-        return view('projector.project.index', compact('projects'));
+        return view('projector.project.index', compact('projects', 'years', 'selectedYear'));
     }
 
     public function create()
