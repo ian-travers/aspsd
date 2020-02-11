@@ -187,7 +187,7 @@ class Project extends Model
 
 
             $query->where(function ($q) use ($year) {
-                $q->orWhereYear('issue_deadline_at', '=', "{$year}");
+                $q->orWhereYear('created_at', '=', "{$year}");
             });
         }
     }
@@ -195,7 +195,7 @@ class Project extends Model
     public static function getProjectsYears(): array
     {
         return Cache::remember('years', 1440, function () {
-            $result = Project::select(\DB::raw('YEAR(issue_deadline_at) as year'))
+            $result = Project::select(\DB::raw('YEAR(created_at) as year'))
             ->distinct()
             ->orderBy('year', 'DESC')
             ->get();
