@@ -6,7 +6,6 @@ use App\Client;
 use App\Http\Requests\Adm\ProjectStoreRequest;
 use App\Http\Requests\Adm\ProjectUpdateRequest;
 use App\Project;
-use Carbon\Carbon;
 
 class ProjectController extends AdmController
 {
@@ -14,7 +13,7 @@ class ProjectController extends AdmController
     {
         $years = Project::getProjectsYears();
 
-        $selectedYear = request('year') ?? Carbon::now()->year;
+        $selectedYear = request('year') ?? Project::getProjectsLastYear();
 
         $projects = request('term')
             ? Project::with('client')

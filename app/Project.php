@@ -203,4 +203,11 @@ class Project extends Model
             return array_filter($result->pluck('year')->toArray());
         });
     }
+
+    public static function getProjectsLastYear()
+    {
+        return Cache::has('years')
+            ? Cache::get('years')[0]
+            : array_values(Project::select(\DB::raw('YEAR(created_at) as year'))->distinct()->orderBy('year', 'DESC')->first()->toArray())[0];
+    }
 }

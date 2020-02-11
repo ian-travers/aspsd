@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Project;
-use Carbon\Carbon;
 
 class ProjectController extends Controller
 {
@@ -11,7 +10,7 @@ class ProjectController extends Controller
     {
         $years = Project::getProjectsYears();
 
-        $selectedYear = request('year') ?? Carbon::now()->year;
+        $selectedYear = request('year') ?? Project::getProjectsLastYear();
 
         $projects = request('term')
             ? Project::with('client')
